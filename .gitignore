@@ -4,3 +4,10 @@ personal/
 __pycache__/
 *.pyc
 .env
+
+# Large meeting media — keep locally, don't commit
+cnib/meeting-notes/media/
+*.mp4
+*.mov
+*.m4a
+*.wav
