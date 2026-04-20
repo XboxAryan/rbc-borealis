@@ -1,0 +1,14 @@
+.DS_Store
+personal/
+.venv/
+__pycache__/
+*.pyc
+.env
+.claude/scheduled_tasks.lock
+
+# Large meeting media — keep locally, don't commit
+cnib/meeting-notes/media/
+*.mp4
+*.mov
+*.m4a
+*.wav
