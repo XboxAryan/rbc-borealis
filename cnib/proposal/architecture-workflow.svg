@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="title desc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="title">Trainer Assist Suite — Architecture Workflow</title>
+  <desc id="desc">Four-column data flow. Data sources on the left (workbook PDFs, class transcripts, survey CSV) feed three primary modules (A: Workbook Digest, B: Question Intelligence, C: Survey Insight). Two aggregation modules (D: Cohort Retrospective, E: Tipsheet Generator) consume primary module outputs. The right column shows final trainer-facing outputs: an accessible HTML/Excel dashboard, per-cohort recommendations, and a draft tipsheet.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3a3a3a"/>
+    </marker>
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <style>
+    .col-label { font-size: 13px; font-weight: 700; fill: #555; letter-spacing: 1.5px; text-transform: uppercase; }
+    .box-title { font-size: 15px; font-weight: 700; fill: #1a1a1a; }
+    .box-sub { font-size: 12px; fill: #444; }
+    .flow-label { font-size: 11px; fill: #666; font-style: italic; }
+    .source-box { fill: #f4f1ea; stroke: #8a7a55; stroke-width: 1.5; stroke-dasharray: 5 3; }
+    .module-box { fill: #e3ecf7; stroke: #2c5282; stroke-width: 2; }
+    .aggregate-box { fill: #ece2f3; stroke: #5b3a87; stroke-width: 2; }
+    .output-box { fill: #e3f2e6; stroke: #2f6b3a; stroke-width: 2; }
+    .arrow { stroke: #3a3a3a; stroke-width: 1.8; fill: none; }
+    .arrow-muted { stroke: #888; stroke-width: 1.3; fill: none; stroke-dasharray: 4 3; }
+    .legend-text { font-size: 12px; fill: #333; }
+    .title-main { font-size: 20px; font-weight: 700; fill: #1a1a1a; }
+  </style>
+
+  <!-- Title -->
+  <text x="600" y="34" text-anchor="middle" class="title-main">Trainer Assist Suite — Architecture</text>
+
+  <!-- Column headers -->
+  <text x="150" y="72" text-anchor="middle" class="col-label">Data Sources</text>
+  <text x="450" y="72" text-anchor="middle" class="col-label">Primary Modules</text>
+  <text x="750" y="72" text-anchor="middle" class="col-label">Aggregation</text>
+  <text x="1050" y="72" text-anchor="middle" class="col-label">Trainer-Facing Output</text>
+
+  <!-- ============ SOURCES ============ -->
+  <g>
+    <rect x="60" y="110" width="180" height="70" rx="6" class="source-box"/>
+    <text x="150" y="138" text-anchor="middle" class="box-title">Workbook PDFs</text>
+    <text x="150" y="158" text-anchor="middle" class="box-sub">~25 / cohort, ~45 pp each</text>
+  </g>
+  <g>
+    <rect x="60" y="310" width="180" height="70" rx="6" class="source-box"/>
+    <text x="150" y="338" text-anchor="middle" class="box-title">Class Transcripts</text>
+    <text x="150" y="358" text-anchor="middle" class="box-sub">Zoom / Teams, past cohorts</text>
+  </g>
+  <g>
+    <rect x="60" y="510" width="180" height="70" rx="6" class="source-box"/>
+    <text x="150" y="538" text-anchor="middle" class="box-title">Survey CSV</text>
+    <text x="150" y="558" text-anchor="middle" class="box-sub">Post-ATA, n = 33</text>
+  </g>
+
+  <!-- ============ PRIMARY MODULES ============ -->
+  <g>
+    <rect x="360" y="110" width="180" height="70" rx="6" class="module-box"/>
+    <text x="450" y="138" text-anchor="middle" class="box-title">Module A</text>
+    <text x="450" y="158" text-anchor="middle" class="box-sub">Workbook Digest</text>
+  </g>
+  <g>
+    <rect x="360" y="310" width="180" height="70" rx="6" class="module-box"/>
+    <text x="450" y="338" text-anchor="middle" class="box-title">Module B</text>
+    <text x="450" y="358" text-anchor="middle" class="box-sub">Question Intelligence</text>
+  </g>
+  <g>
+    <rect x="360" y="510" width="180" height="70" rx="6" class="module-box"/>
+    <text x="450" y="538" text-anchor="middle" class="box-title">Module C</text>
+    <text x="450" y="558" text-anchor="middle" class="box-sub">Survey Insight</text>
+  </g>
+
+  <!-- ============ AGGREGATION ============ -->
+  <g>
+    <rect x="660" y="210" width="180" height="80" rx="6" class="aggregate-box"/>
+    <text x="750" y="240" text-anchor="middle" class="box-title">Module D</text>
+    <text x="750" y="260" text-anchor="middle" class="box-sub">Cohort Retrospective</text>
+    <text x="750" y="278" text-anchor="middle" class="flow-label">consumes A + B + C</text>
+  </g>
+  <g>
+    <rect x="660" y="430" width="180" height="80" rx="6" class="aggregate-box"/>
+    <text x="750" y="460" text-anchor="middle" class="box-title">Module E</text>
+    <text x="750" y="480" text-anchor="middle" class="box-sub">Tipsheet Generator</text>
+    <text x="750" y="498" text-anchor="middle" class="flow-label">consumes B</text>
+  </g>
+
+  <!-- ============ OUTPUTS ============ -->
+  <g>
+    <rect x="960" y="110" width="180" height="70" rx="14" class="output-box"/>
+    <text x="1050" y="138" text-anchor="middle" class="box-title">Dashboard</text>
+    <text x="1050" y="158" text-anchor="middle" class="box-sub">Accessible HTML / Excel</text>
+  </g>
+  <g>
+    <rect x="960" y="230" width="180" height="70" rx="14" class="output-box"/>
+    <text x="1050" y="258" text-anchor="middle" class="box-title">Cohort N+1 Recs</text>
+    <text x="1050" y="278" text-anchor="middle" class="box-sub">Retrospective report</text>
+  </g>
+  <g>
+    <rect x="960" y="430" width="180" height="70" rx="14" class="output-box"/>
+    <text x="1050" y="458" text-anchor="middle" class="box-title">Draft Tipsheet</text>
+    <text x="1050" y="478" text-anchor="middle" class="box-sub">Per-week, trainer-edited</text>
+  </g>
+
+  <!-- ============ MERGE JUNCTION ============ -->
+  <!-- Small junction dot where A, B, C outputs combine before the dashboard -->
+  <circle cx="600" cy="345" r="5" fill="#3a3a3a"/>
+  <text x="600" y="370" text-anchor="middle" class="flow-label">merge</text>
+
+  <!-- ============ ARROWS ============ -->
+
+  <!-- Sources → Primary Modules -->
+  <path d="M 240 145 L 360 145" class="arrow" marker-end="url(#arrow)"/>
+  <path d="M 240 345 L 360 345" class="arrow" marker-end="url(#arrow)"/>
+  <path d="M 240 545 L 360 545" class="arrow" marker-end="url(#arrow)"/>
+
+  <!-- Module A output → merge (down) -->
+  <path d="M 540 145 L 580 145 L 580 340 L 595 345" class="arrow"/>
+
+  <!-- Module B output → merge (short) -->
+  <path d="M 540 345 L 595 345" class="arrow"/>
+
+  <!-- Module C output → merge (up) -->
+  <path d="M 540 545 L 580 545 L 580 350 L 595 345" class="arrow"/>
+
+  <!-- Merge → Dashboard (top output) -->
+  <path d="M 605 345 L 900 345 L 900 145 L 960 145" class="arrow" marker-end="url(#arrow)"/>
+
+  <!-- Merge → Module D (combined A+B+C feed) -->
+  <path d="M 605 345 L 640 345 L 640 250 L 660 250" class="arrow-muted" marker-end="url(#arrow-muted)"/>
+
+  <!-- Module B → Module E (direct feed, bypasses merge) -->
+  <path d="M 500 380 L 500 465 L 660 465" class="arrow-muted" marker-end="url(#arrow-muted)"/>
+
+  <!-- Module D → Cohort N+1 Recs -->
+  <path d="M 840 260 L 960 260" class="arrow" marker-end="url(#arrow)"/>
+
+  <!-- Module E → Draft Tipsheet -->
+  <path d="M 840 465 L 960 465" class="arrow" marker-end="url(#arrow)"/>
+
+  <!-- ============ LEGEND ============ -->
+  <g transform="translate(60, 590)">
+    <rect x="0" y="0" width="1080" height="60" fill="#fafafa" stroke="#ddd" stroke-width="1" rx="4"/>
+
+    <!-- Row 1: shape swatches (4 items, evenly spaced) -->
+    <g transform="translate(70, 20)">
+      <rect x="0" y="0" width="22" height="13" class="source-box"/>
+      <text x="30" y="11" class="legend-text">Data source</text>
+    </g>
+    <g transform="translate(330, 20)">
+      <rect x="0" y="0" width="22" height="13" class="module-box"/>
+      <text x="30" y="11" class="legend-text">Primary module</text>
+    </g>
+    <g transform="translate(590, 20)">
+      <rect x="0" y="0" width="22" height="13" class="aggregate-box"/>
+      <text x="30" y="11" class="legend-text">Aggregation module</text>
+    </g>
+    <g transform="translate(880, 20)">
+      <rect x="0" y="0" width="22" height="13" rx="6" class="output-box"/>
+      <text x="30" y="11" class="legend-text">Trainer output</text>
+    </g>
+
+    <!-- Row 2: arrow types (2 items, evenly spaced) -->
+    <g transform="translate(230, 44)">
+      <line x1="0" y1="0" x2="36" y2="0" class="arrow" marker-end="url(#arrow)"/>
+      <text x="44" y="4" class="legend-text">Primary data flow</text>
+    </g>
+    <g transform="translate(620, 44)">
+      <line x1="0" y1="0" x2="36" y2="0" class="arrow-muted" marker-end="url(#arrow-muted)"/>
+      <text x="44" y="4" class="legend-text">Module output feeds aggregator</text>
+    </g>
+  </g>
+</svg>
